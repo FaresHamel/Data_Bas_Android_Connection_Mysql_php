@@ -88,7 +88,7 @@ public class CreatnewCompt extends AppCompatActivity {
             jsonObject.put("Password",pasworduser);
             
         }catch (JSONException E){
-
+            e.printStackTrace();
         }
 
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(
@@ -102,13 +102,13 @@ public class CreatnewCompt extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Log.d(TAG, "onErrorResponse:" +error);
                     }
                 });
 
-        final RequestQueue queue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
 
-        queue.add(jsonObjReq);
+        requestQueue.add(jsonObjReq);
     }
 
 
